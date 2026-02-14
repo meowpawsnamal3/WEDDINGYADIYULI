@@ -151,3 +151,64 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 32px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* COUNTDOWN */
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.timer div {
+  text-align: center;
+}
+.timer span {
+  font-size: 32px;
+  font-weight: bold;
+  display: block;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* GIFT */
+#giftBox {
+  display: none;
+  margin-top: 30px;
+  width: 200px;
+}
