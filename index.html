@@ -7,237 +7,155 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/lenis@1.0.5/dist/lenis.min.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:#f6f1eb;
+background:#f4efe9;
 color:#1a1a1a;
 font-family:Montserrat,sans-serif;
 overflow-x:hidden;
 }
 
-/* GENERAL */
-section{
-padding:120px 20px;
-max-width:1100px;
-margin:auto;
-}
+/* smooth scroll container */
+html,body{scroll-behavior:auto}
 
-h1,h2,h3{
-font-family:"Cormorant Garamond",serif;
-font-weight:600;
-letter-spacing:1px;
-}
-
-.divider{
-width:60px;
-height:1px;
-background:#c6a96b;
-margin:25px auto;
-}
-
-/* OPENING */
-.opening{
+/* cinematic intro */
+.intro{
 position:fixed;
 inset:0;
-background:#f6f1eb;
+background:#f4efe9;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-z-index:999;
-text-align:center;
+z-index:9999;
 }
 
-.opening h2{
-font-size:20px;
-font-weight:400;
+.intro h1{
+font-family:"Cormorant Garamond",serif;
+font-size:40px;
+letter-spacing:4px;
+opacity:0;
 }
 
-.opening button{
+.intro button{
 margin-top:30px;
-padding:12px 32px;
+padding:14px 40px;
 border:1px solid #1a1a1a;
 background:transparent;
 cursor:pointer;
-transition:.3s;
-letter-spacing:2px;
+letter-spacing:3px;
 }
 
-.opening button:hover{
-background:#1a1a1a;
-color:#fff;
-}
-
-/* HERO */
+/* hero */
 .hero{
+height:100vh;
 display:flex;
-flex-direction:column;
+justify-content:center;
 align-items:center;
+flex-direction:column;
 text-align:center;
-padding-top:160px;
+position:relative;
+overflow:hidden;
 }
 
 .hero img{
 width:100%;
-max-width:600px;
+max-width:650px;
 border:1px solid #ddd;
-padding:15px;
+padding:18px;
 background:#fff;
+box-shadow:0 30px 60px rgba(0,0,0,.08);
 }
 
 .couple{
-font-size:52px;
+font-family:"Cormorant Garamond",serif;
+font-size:60px;
+letter-spacing:10px;
 margin-top:40px;
 }
 
 .date{
 margin-top:15px;
-letter-spacing:3px;
-font-size:14px;
+letter-spacing:4px;
 }
 
-/* QUOTE */
-.quote{
-text-align:center;
-font-size:18px;
-line-height:1.8;
-max-width:700px;
+section{
+padding:150px 20px;
+max-width:1100px;
 margin:auto;
+opacity:0;
+transform:translateY(60px);
 }
 
-/* SPLIT */
-.split{
-display:flex;
-gap:60px;
-align-items:center;
-flex-wrap:wrap;
+/* divider */
+.divider{
+width:80px;
+height:1px;
+background:#c6a96b;
+margin:30px auto;
 }
 
-.split img{
-width:100%;
-max-width:450px;
-border:1px solid #ddd;
-padding:10px;
-background:#fff;
-}
-
-.split-text{
-flex:1;
-}
-
-/* COUNTDOWN */
+/* countdown */
 .timer{
 display:flex;
 justify-content:center;
-gap:40px;
-margin-top:40px;
-}
-
-.timer div{
-text-align:center;
+gap:60px;
+margin-top:50px;
 }
 
 .timer span{
-display:block;
-font-size:36px;
 font-family:"Cormorant Garamond",serif;
+font-size:42px;
+display:block;
 }
 
-/* GALLERY */
+/* gallery */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .gallery img{
 width:100%;
 border:1px solid #ddd;
-padding:8px;
+padding:10px;
 background:#fff;
-transition:.4s;
+transition:.6s;
 }
 
 .gallery img:hover{
-transform:translateY(-5px);
+transform:scale(1.05);
 }
 
-/* RSVP BUTTON */
-.rsvp{
-text-align:center;
-}
-
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:14px 36px;
-border:1px solid #1a1a1a;
-text-decoration:none;
-color:#1a1a1a;
-letter-spacing:2px;
-transition:.3s;
-}
-
-.btn:hover{
-background:#1a1a1a;
-color:#fff;
-}
-
-/* FOOTER */
 footer{
-padding:60px 20px;
+padding:80px 20px;
 text-align:center;
-font-size:12px;
-letter-spacing:2px;
-}
-
-@media(max-width:768px){
-.couple{font-size:36px}
-.split{flex-direction:column}
-.timer{flex-wrap:wrap}
+letter-spacing:3px;
 }
 </style>
 </head>
 <body>
 
-<div class="opening" id="opening">
-<h2>Kepada Yth.</h2>
-<h3 id="guestName">Nama Tamu</h3>
-<button onclick="start()">OPEN INVITATION</button>
+<div class="intro" id="intro">
+<h1 id="introText">ARCA & NISA</h1>
+<button onclick="startExperience()">ENTER</button>
 </div>
 
-<section class="hero">
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" alt="">
+<div class="hero">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
 <h1 class="couple">ARCA & NISA</h1>
 <div class="divider"></div>
 <p class="date">12 DECEMBER 2026</p>
-</section>
+</div>
 
 <section>
-<div class="quote">
-“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri agar kamu merasa tenteram kepadanya.”
-<br><br>
-<strong>QS. Ar-Rum: 21</strong>
-</div>
-</section>
-
-<section class="split">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<div class="split-text">
-<h2>Our Story</h2>
-<div class="divider" style="margin-left:0"></div>
-<p>
-Segala sesuatu dimulai tanpa rencana.
-Dua hati dipertemukan dalam waktu yang tak terduga.
-Dan kini, kami melangkah bersama menuju hari bahagia.
-</p>
-</div>
-</section>
-
-<section>
-<h2 style="text-align:center">Countdown</h2>
+<h2 style="text-align:center;font-family:'Cormorant Garamond'">Countdown</h2>
 <div class="divider"></div>
 <div class="timer">
 <div><span id="d">0</span>Days</div>
@@ -248,7 +166,7 @@ Dan kini, kami melangkah bersama menuju hari bahagia.
 </section>
 
 <section>
-<h2 style="text-align:center">Gallery</h2>
+<h2 style="text-align:center;font-family:'Cormorant Garamond'">Gallery</h2>
 <div class="divider"></div>
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e">
@@ -257,26 +175,45 @@ Dan kini, kami melangkah bersama menuju hari bahagia.
 </div>
 </section>
 
-<section class="rsvp">
-<h2>RSVP</h2>
-<div class="divider"></div>
-<a href="#" class="btn">CONFIRM ATTENDANCE</a>
-</section>
-
 <footer>
 ARCA & NISA • 2026
 </footer>
 
 <script>
-function start(){
-document.getElementById("opening").style.display="none";
+
+/* smooth scroll */
+const lenis = new Lenis()
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+requestAnimationFrame(raf)
+
+/* intro animation */
+gsap.to("#introText",{opacity:1,y:-10,duration:2})
+
+function startExperience(){
+gsap.to("#intro",{opacity:0,duration:1,onComplete:()=>{
+document.getElementById("intro").style.display="none"
+}})
+gsap.from(".hero img",{scale:1.1,duration:2})
+gsap.from(".couple",{opacity:0,y:40,duration:2,delay:.5})
 }
 
-const guest=new URLSearchParams(window.location.search).get("to");
-if(guest){
-document.getElementById("guestName").innerText=guest;
-}
+/* scroll reveal */
+gsap.utils.toArray("section").forEach(section=>{
+gsap.to(section,{
+scrollTrigger:{
+trigger:section,
+start:"top 80%",
+},
+opacity:1,
+y:0,
+duration:1.5
+})
+})
 
+/* countdown */
 const target=new Date("2026-12-12T08:00:00").getTime();
 setInterval(()=>{
 let now=new Date().getTime();
@@ -287,6 +224,7 @@ document.getElementById("h").innerText=Math.floor((diff/(1000*60*60))%24);
 document.getElementById("m").innerText=Math.floor((diff/(1000*60))%60);
 document.getElementById("s").innerText=Math.floor((diff/1000)%60);
 },1000);
+
 </script>
 
 </body>
