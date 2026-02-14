@@ -9,13 +9,39 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Montserrat,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+
+body{
+background:#f6f1eb;
+color:#1a1a1a;
+font-family:Montserrat,sans-serif;
+overflow-x:hidden;
+}
+
+/* GENERAL */
+section{
+padding:120px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h1,h2,h3{
+font-family:"Cormorant Garamond",serif;
+font-weight:600;
+letter-spacing:1px;
+}
+
+.divider{
+width:60px;
+height:1px;
+background:#c6a96b;
+margin:25px auto;
+}
 
 /* OPENING */
 .opening{
 position:fixed;
 inset:0;
-background:#000;
+background:#f6f1eb;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -23,220 +49,232 @@ flex-direction:column;
 z-index:999;
 text-align:center;
 }
+
+.opening h2{
+font-size:20px;
+font-weight:400;
+}
+
 .opening button{
-margin-top:20px;
-padding:12px 30px;
-border:1px solid #fff;
+margin-top:30px;
+padding:12px 32px;
+border:1px solid #1a1a1a;
 background:transparent;
-color:#fff;
 cursor:pointer;
 transition:.3s;
+letter-spacing:2px;
 }
-.opening button:hover{background:#fff;color:#000}
 
-/* HERO VIDEO */
+.opening button:hover{
+background:#1a1a1a;
+color:#fff;
+}
+
+/* HERO */
 .hero{
-height:100vh;
-position:relative;
-overflow:hidden;
-}
-.hero video{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-filter:grayscale(100%);
-}
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.6);
-}
-.hero-content{
-position:relative;
-z-index:2;
-height:100%;
 display:flex;
-justify-content:center;
-align-items:center;
 flex-direction:column;
+align-items:center;
 text-align:center;
-}
-.couple{
-font-family:"Cormorant Garamond",serif;
-font-size:60px;
-letter-spacing:6px;
-opacity:0;
-animation:fadeUp 2s forwards .5s;
-}
-.date{
-margin-top:20px;
-letter-spacing:3px;
-opacity:0;
-animation:fadeUp 2s forwards 1.2s;
+padding-top:160px;
 }
 
-/* SECTION */
-section{
-padding:100px 20px;
-text-align:center;
+.hero img{
+width:100%;
+max-width:600px;
+border:1px solid #ddd;
+padding:15px;
+background:#fff;
 }
-h2{
-font-family:"Cormorant Garamond",serif;
-font-size:36px;
-margin-bottom:40px;
+
+.couple{
+font-size:52px;
+margin-top:40px;
+}
+
+.date{
+margin-top:15px;
+letter-spacing:3px;
+font-size:14px;
+}
+
+/* QUOTE */
+.quote{
+text-align:center;
+font-size:18px;
+line-height:1.8;
+max-width:700px;
+margin:auto;
+}
+
+/* SPLIT */
+.split{
+display:flex;
+gap:60px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.split img{
+width:100%;
+max-width:450px;
+border:1px solid #ddd;
+padding:10px;
+background:#fff;
+}
+
+.split-text{
+flex:1;
 }
 
 /* COUNTDOWN */
 .timer{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:40px;
+margin-top:40px;
 }
-.timer div span{
-font-size:32px;
-font-weight:bold;
+
+.timer div{
+text-align:center;
+}
+
+.timer span{
 display:block;
+font-size:36px;
+font-family:"Cormorant Garamond",serif;
 }
 
 /* GALLERY */
-.gallery-grid{
+.gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
+
 .gallery img{
 width:100%;
-filter:grayscale(100%);
-cursor:pointer;
-transition:.5s;
+border:1px solid #ddd;
+padding:8px;
+background:#fff;
+transition:.4s;
 }
+
 .gallery img:hover{
-filter:grayscale(0%);
-transform:scale(1.05);
+transform:translateY(-5px);
 }
 
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-.modal img{
-max-width:90%;
-max-height:90%;
-}
-.close{
-position:absolute;
-top:30px;
-right:40px;
-font-size:30px;
-cursor:pointer;
+/* RSVP BUTTON */
+.rsvp{
+text-align:center;
 }
 
-/* BUTTON */
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:12px 30px;
-border:1px solid #fff;
-background:transparent;
-color:#fff;
+margin-top:30px;
+padding:14px 36px;
+border:1px solid #1a1a1a;
 text-decoration:none;
+color:#1a1a1a;
+letter-spacing:2px;
 transition:.3s;
 }
-.btn:hover{background:#fff;color:#000}
 
-/* FLOAT RSVP */
-.float-rsvp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#fff;
-color:#000;
-padding:12px 20px;
-border-radius:30px;
-font-size:14px;
-cursor:pointer;
+.btn:hover{
+background:#1a1a1a;
+color:#fff;
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
+/* FOOTER */
+footer{
+padding:60px 20px;
+text-align:center;
+font-size:12px;
+letter-spacing:2px;
+}
+
+@media(max-width:768px){
+.couple{font-size:36px}
+.split{flex-direction:column}
+.timer{flex-wrap:wrap}
 }
 </style>
 </head>
 <body>
 
-<!-- OPENING -->
 <div class="opening" id="opening">
 <h2>Kepada Yth.</h2>
 <h3 id="guestName">Nama Tamu</h3>
-<button onclick="start()">Buka Undangan</button>
+<button onclick="start()">OPEN INVITATION</button>
 </div>
 
-<audio id="music" src="https://cdn.pixabay.com/audio/2022/10/25/audio_9f2f7f2f5a.mp3" loop></audio>
-
-<!-- HERO -->
-<div class="hero">
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-wedding-couple-kissing-6826/1080p.mp4" type="video/mp4">
-</video>
-<div class="hero-content">
+<section class="hero">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" alt="">
 <h1 class="couple">ARCA & NISA</h1>
-<p class="date">12 • 12 • 2026</p>
-</div>
-</div>
+<div class="divider"></div>
+<p class="date">12 DECEMBER 2026</p>
+</section>
 
 <section>
-<h2>Countdown</h2>
-<div class="timer">
-<div><span id="d">0</span>Hari</div>
-<div><span id="h">0</span>Jam</div>
-<div><span id="m">0</span>Menit</div>
-<div><span id="s">0</span>Detik</div>
+<div class="quote">
+“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri agar kamu merasa tenteram kepadanya.”
+<br><br>
+<strong>QS. Ar-Rum: 21</strong>
 </div>
 </section>
 
-<section class="gallery">
-<h2>Gallery</h2>
-<div class="gallery-grid">
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+<section class="split">
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<div class="split-text">
+<h2>Our Story</h2>
+<div class="divider" style="margin-left:0"></div>
+<p>
+Segala sesuatu dimulai tanpa rencana.
+Dua hati dipertemukan dalam waktu yang tak terduga.
+Dan kini, kami melangkah bersama menuju hari bahagia.
+</p>
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center">Countdown</h2>
+<div class="divider"></div>
+<div class="timer">
+<div><span id="d">0</span>Days</div>
+<div><span id="h">0</span>Hours</div>
+<div><span id="m">0</span>Minutes</div>
+<div><span id="s">0</span>Seconds</div>
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center">Gallery</h2>
+<div class="divider"></div>
+<div class="gallery">
 <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e">
 <img src="https://images.unsplash.com/photo-1529636798458-92182e662485">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
 </div>
 </section>
 
-<section>
-<h2>Wedding Gift</h2>
-<a href="#" class="btn">Lihat QRIS</a>
+<section class="rsvp">
+<h2>RSVP</h2>
+<div class="divider"></div>
+<a href="#" class="btn">CONFIRM ATTENDANCE</a>
 </section>
 
-<div class="modal" id="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<img id="modalImg">
-</div>
-
-<div class="float-rsvp">RSVP</div>
+<footer>
+ARCA & NISA • 2026
+</footer>
 
 <script>
 function start(){
 document.getElementById("opening").style.display="none";
-let music=document.getElementById("music");
-music.volume=0;
-music.play();
-let fade=setInterval(()=>{
-if(music.volume<1){music.volume+=0.05}
-else clearInterval(fade)
-},200)
+}
+
+const guest=new URLSearchParams(window.location.search).get("to");
+if(guest){
+document.getElementById("guestName").innerText=guest;
 }
 
 const target=new Date("2026-12-12T08:00:00").getTime();
@@ -249,20 +287,6 @@ document.getElementById("h").innerText=Math.floor((diff/(1000*60*60))%24);
 document.getElementById("m").innerText=Math.floor((diff/(1000*60))%60);
 document.getElementById("s").innerText=Math.floor((diff/1000)%60);
 },1000);
-
-document.querySelectorAll(".gallery img").forEach(img=>{
-img.onclick=()=>{
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalImg").src=img.src;
-}
-});
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-const guest=new URLSearchParams(window.location.search).get("to");
-if(guest){document.getElementById("guestName").innerText=guest}
 </script>
 
 </body>
