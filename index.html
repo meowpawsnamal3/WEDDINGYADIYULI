@@ -3,15 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Yadi & Yuli</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
+body{
+background:#F2E9DF;
+font-family:Inter,sans-serif;
+overflow-x:hidden;
+}
+
+/* Opening Screen */
+.opening-screen{
+position:fixed;
+inset:0;
+background:#000;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+z-index:9999;
+transition:opacity 1.5s ease;
+}
+
+.opening-screen.hide{
+opacity:0;
+pointer-events:none;
+}
+
+.opening-content h1{
+font-family:'Playfair Display',serif;
+letter-spacing:8px;
+margin:20px 0;
+}
+
+.opening-content button{
+padding:14px 40px;
+background:transparent;
+border:1px solid #fff;
+color:#fff;
+letter-spacing:4px;
+cursor:pointer;
+transition:.4s;
+}
+
+.opening-content button:hover{
+background:#fff;
+color:#000;
+}
+
+/* Hero */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:60px;
+letter-spacing:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="opening-screen" id="opening">
+  <div class="opening-content">
+    <p>THE WEDDING OF</p>
+    <h1>YADI & YULI</h1>
+    <button id="openBtn">OPEN INVITATION</button>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Welcome to Our Wedding</h1>
+</section>
+
 <script>
 document.getElementById("openBtn").addEventListener("click", function(){
   const opening = document.getElementById("opening");
@@ -22,185 +97,6 @@ document.getElementById("openBtn").addEventListener("click", function(){
   }, 1500);
 });
 </script>
-body{
-background:#F2E9DF;
-font-family:Inter,sans-serif;
-overflow-x:hidden;
-}
 
-/* grain overlay */
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-opacity:.05;
-pointer-events:none;
-z-index:999;
-}
-
-/* hero */
-.hero{
-position:relative;
-height:100vh;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#fff;
-text-align:center;
-}
-
-.hero video{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-transform:scale(1.05);
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.3));
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-}
-
-.hero small{
-letter-spacing:4px;
-font-size:14px;
-}
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:80px;
-letter-spacing:12px;
-margin-top:20px;
-}
-
-.hero p{
-margin-top:20px;
-letter-spacing:4px;
-}
-  <div class="opening-screen" id="opening">
-  <div class="opening-content">
-    <p>THE WEDDING OF</p>
-    <h1>YADI & YULI</h1>
-    <button id="openBtn">OPEN INVITATION</button>
-  </div>
-</div>
-<section class="cinematic-title">
-  <h2 class="huge-text">A Celebration<br>of Love</h2>
-</section>
-
-<section class="parallax-story">
-  <div class="story-image"></div>
-  <div class="story-content">
-    <h3>Our Beginning</h3>
-    <p>
-      In the quiet moments of life, we found each other.
-      What started as a simple hello became a lifetime promise.
-    </p>
-  </div>
-</section>
-
-<section class="full-quote">
-  <p>"And suddenly, all the love songs were about you."</p>
-</section>
-</style>
-</head>
-<body>
-
-<section class="hero">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-wedding-couple-6177/1080p.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-<small>THE WEDDING OF</small>
-<h1 id="names">YADI & YULI</h1>
-<p>12 DECEMBER 2026</p>
-</div>
-</section>
-
-<script>
-
-const text = document.getElementById("names");
-const letters = text.innerText.split("");
-text.innerHTML = "";
-
-letters.forEach(letter => {
-  const span = document.createElement("span");
-  span.innerText = letter;
-  span.style.display = "inline-block";
-  span.style.opacity = 0;
-  span.style.transform = "translateY(30px)";
-  text.appendChild(span);
-});
-
-  <script>
-
-gsap.registerPlugin(ScrollTrigger);
-
-/* Cinematic Title Reveal */
-gsap.to(".huge-text",{
-scrollTrigger:{
-trigger:".cinematic-title",
-start:"top 70%"
-},
-opacity:1,
-y:0,
-duration:2,
-ease:"power3.out"
-});
-
-/* Parallax Depth */
-gsap.to(".story-image",{
-scrollTrigger:{
-trigger:".parallax-story",
-start:"top bottom",
-end:"bottom top",
-scrub:true
-},
-scale:1,
-y:-100
-});
-
-/* Quote Reveal */
-gsap.to(".full-quote",{
-scrollTrigger:{
-trigger:".full-quote",
-start:"top 80%"
-},
-opacity:1,
-y:0,
-duration:2,
-ease:"power2.out"
-});
-
-</script>
-gsap.to(".hero video", {
-  scale: 1,
-  duration: 18,
-  ease: "power1.out"
-});
-
-gsap.to("#names span", {
-  opacity: 1,
-  y: 0,
-  duration: 1.6,
-  stagger: 0.08,
-  ease: "power3.out",
-  delay: 0.5
-});
-</script>
-  
 </body>
 </html>
