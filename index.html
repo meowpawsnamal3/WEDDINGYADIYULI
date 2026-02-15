@@ -8,6 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("openBtn");
+  const opening = document.querySelector(".opening-screen");
+
+  if(btn){
+    btn.addEventListener("click", function () {
+      opening.classList.add("hide");
+
+      setTimeout(() => {
+        opening.style.display = "none";
+      }, 2000);
+    });
+  }
+});
+</script>
     <style>
         * {
             margin: 0;
