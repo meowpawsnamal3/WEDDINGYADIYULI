@@ -1,0 +1,61 @@
+.cinematic-title{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#F2E9DF;
+}
+
+.huge-text{
+font-family:'Playfair Display',serif;
+font-size:110px;
+text-align:center;
+letter-spacing:8px;
+opacity:0;
+transform:translateY(80px);
+}
+
+.parallax-story{
+position:relative;
+height:120vh;
+display:flex;
+align-items:center;
+padding:0 10%;
+background:#EFE4D9;
+overflow:hidden;
+}
+
+.story-image{
+position:absolute;
+inset:0;
+background:url("https://images.unsplash.com/photo-1520854221256-17451cc331bf") center/cover;
+transform:scale(1.2);
+}
+
+.story-content{
+position:relative;
+z-index:2;
+background:rgba(255,255,255,.8);
+padding:60px;
+max-width:500px;
+}
+
+.story-content h3{
+font-family:'Playfair Display',serif;
+font-size:40px;
+margin-bottom:20px;
+}
+
+.full-quote{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:#E6DBCF;
+font-family:'Playfair Display',serif;
+font-size:48px;
+padding:0 20%;
+opacity:0;
+transform:translateY(60px);
+}
