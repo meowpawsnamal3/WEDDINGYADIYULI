@@ -59,3 +59,42 @@ padding:0 20%;
 opacity:0;
 transform:translateY(60px);
 }
+
+.opening-screen{
+position:fixed;
+inset:0;
+background:#000;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+z-index:9999;
+transition:opacity 1.5s ease;
+}
+
+.opening-screen.hide{
+opacity:0;
+pointer-events:none;
+}
+
+.opening-content h1{
+font-family:'Playfair Display',serif;
+letter-spacing:8px;
+margin:20px 0;
+}
+
+.opening-content button{
+padding:14px 40px;
+background:transparent;
+border:1px solid #fff;
+color:#fff;
+letter-spacing:4px;
+cursor:pointer;
+transition:.4s;
+}
+
+.opening-content button:hover{
+background:#fff;
+color:#000;
+}
