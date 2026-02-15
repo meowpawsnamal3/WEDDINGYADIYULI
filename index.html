@@ -129,6 +129,47 @@ letters.forEach(letter => {
   text.appendChild(span);
 });
 
+  <script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* Cinematic Title Reveal */
+gsap.to(".huge-text",{
+scrollTrigger:{
+trigger:".cinematic-title",
+start:"top 70%"
+},
+opacity:1,
+y:0,
+duration:2,
+ease:"power3.out"
+});
+
+/* Parallax Depth */
+gsap.to(".story-image",{
+scrollTrigger:{
+trigger:".parallax-story",
+start:"top bottom",
+end:"bottom top",
+scrub:true
+},
+scale:1,
+y:-100
+});
+
+/* Quote Reveal */
+gsap.to(".full-quote",{
+scrollTrigger:{
+trigger:".full-quote",
+start:"top 80%"
+},
+opacity:1,
+y:0,
+duration:2,
+ease:"power2.out"
+});
+
+</script>
 gsap.to(".hero video", {
   scale: 1,
   duration: 18,
